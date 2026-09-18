@@ -145,104 +145,198 @@ productsName(product1);
 productsName(product2);
 productsName(product3);
 
-//Level 3 
+//Level 3
 
-interface Admin extends User{
-  role:string,
-  permission:string[],
+interface Admin extends User {
+  role: string;
+  permission: string[];
 }
 
 let admin: Admin = {
-  role:"All Access",
-  permission: ["security","Survilance", "Modfy"],
-  id:1,
-  name:"Admin User",
-  email:"admin@gmail.com",
-  isActive:true
-}
+  role: "All Access",
+  permission: ["security", "Survilance", "Modfy"],
+  id: 1,
+  name: "Admin User",
+  email: "admin@gmail.com",
+  isActive: true,
+};
 
-//Level 4 
+//Level 4
 
 type ProductId = number;
 type ProductName = string;
 
-interface ProductDetails{
-  name:ProductName,
-  totalStock:ProductId,
+interface ProductDetails {
+  name: ProductName;
+  totalStock: ProductId;
 }
 
 type Car = {
-  brand:string,
-  model:string,
-  year:number,
-  electric:boolean
-}
+  brand: string;
+  model: string;
+  year: number;
+  electric: boolean;
+};
 
 let carObj: Car = {
-  brand:"Toyota",
-  model:"Supra",
-  year:2019,
-  electric:false
-}
+  brand: "Toyota",
+  model: "Supra",
+  year: 2019,
+  electric: false,
+};
 
-let carObj1: Car =  {
-  brand:"BMW",
-  model:"M5 Compitition",
-  year:2025,
-  electric:false
-}
+let carObj1: Car = {
+  brand: "BMW",
+  model: "M5 Compitition",
+  year: 2025,
+  electric: false,
+};
 
 //Level 5
 
 let UserId: number | string;
-UserId = 25
-UserId = "Aman"
+UserId = 25;
+UserId = "Aman";
 
-let Status: "loading" | "success" | "error" 
+let Status: "loading" | "success" | "error";
 
-Status = "Pending" // Throws error: Type '"Pending"' is not assignable to type '"loading" | "success" | "error"'
+Status = "Pending"; // Throws error: Type '"Pending"' is not assignable to type '"loading" | "success" | "error"'
 
 //Level 6
 
 type Employee = {
-  id:number,
-  name:string,
-  salary:number
-}
+  id: number;
+  name: string;
+  salary: number;
+};
 
 type Developer = {
-  language:string,
-  yoe:number
-}
+  language: string;
+  yoe: number;
+};
 
-type DeveloperEmployee = Employee & Developer  
+type DeveloperEmployee = Employee & Developer;
 
 let DeveloperEmployee: DeveloperEmployee = {
-  id:1,
-  name:"Aman",
-  salary:3000000,
-  language:"TypeScript",
-  yoe:0
-}
+  id: 1,
+  name: "Aman",
+  salary: 3000000,
+  language: "TypeScript",
+  yoe: 0,
+};
 
 //Final Challenge
 
 interface Person {
-  id:number,
-  name:string,
-  email:string
+  id: number;
+  name: string;
+  email: string;
 }
 
 interface Developers {
-  skills:string,
-  experince:number
+  skills: string;
+  experince: number;
 }
 
 interface Admin extends Person {
-  role:string
+  role: string;
 }
 
-let ApplicationStatus: "Pending" | "accepted" | "rejected"
+let ApplicationStatus: "Pending" | "accepted" | "rejected";
 
+type DeveloperPerson = Person & Developers;
 
-type DeveloperPerson = Person & Developers
+//revision
+// basic intersection
+
+type Users = {
+  id: number;
+  name: string;
+};
+
+type Contacts = {
+  email: string;
+  phone: string;
+};
+
+type UserContact = Users & Contacts;
+
+let UserDetails: UserContact = {
+  id: 101,
+  name: "Aman",
+  email: "amansingh@gmail.com",
+  phone: "99999999999",
+};
+
+//Intersection with Different Responsibilities
+
+type Products = {
+  productId: number;
+  productName: string;
+  price: number;
+};
+
+type Inventory = {
+  stock: number;
+  warehouse: boolean;
+};
+
+type ProductInventory = Products & Inventory;
+
+let laptop: ProductInventory = {
+  productId: 101,
+  productName: "Lenovo Loq",
+  price: 98000,
+  stock: 120,
+  warehouse: true,
+};
+
+let Desktop: ProductInventory = {
+  productId: 102,
+  productName: "Acer Nitro",
+  price: 101000,
+  stock: 112,
+  warehouse: false,
+};
+
+// Class + Constructor Practice
+
+class Student {
+  constructor(name: string, age: number, coruse: string) {}
+}
+
+let std1 = new Student("Aman Singh", 24, "MCA");
+let std2 = new Student("Sweety Sharma", 23, "MCom");
+
+//Class for a Product
+
+class Product {
+  constructor(id: number, name: string, price: number, inStock: boolean) {}
+}
+
+let p1 = new Product(101, "Dish tv", 1200, true);
+let p2 = new Product(102, "Phone", 100, false);
+let p3 = new Product(103, "Laptop", 12000, true);
+
+//Class + Constructor Challenge
+
+class BankAccount {
+  constructor(accountNumber: number, holderName: string, balance: number) {
+
+  }
+}
+
+let b1 = new BankAccount(585926002825,"Aman Singh",12000);
+let b2 = new BankAccount(585926002826,"Sweety Gupta",18000);
+
+//Final Challenge
+
+class Cars {
+  constructor(brand:string,model:string,year:number,price:number){
+
+  }
+}
+
+let c1 = new Cars("MG","electric",2025,1209999)
+let c2 = new Cars("BMW","M5 Competition",2025,9999999999)
+let c3 = new Cars("Tesla","electric",2025,99)
