@@ -340,3 +340,109 @@ class Cars {
 let c1 = new Cars("MG","electric",2025,1209999)
 let c2 = new Cars("BMW","M5 Competition",2025,9999999999)
 let c3 = new Cars("Tesla","electric",2025,99)
+
+// this and access modifier
+
+class Students {
+  name;
+  age;
+  course;
+  constructor(name:string,age:number,course:string){
+   this.name = name
+   this.age = age
+   this.course = course 
+  }
+}
+
+let std101 = new Students("AMan",24,"mca") 
+let std102 = new Students("Sonali",16,"Phd")
+
+//public
+
+class Productss {
+  public name;
+  public price;
+  public inStock;
+  constructor(naam:string,kimat:number,samaanHai:boolean){
+    this.name = naam
+    this.price = kimat
+    this.inStock = samaanHai
+  } 
+}
+
+let ptd1 = new Productss("Lappy", 2500,true)
+ptd1.name
+ptd1.price
+ptd1.inStock
+
+//private
+
+class BankAccounts {
+  private accountNumber;
+  public holderName;
+  private balance;
+  constructor(accountNumber:number,holderName:string,balance:number){
+    this.accountNumber = accountNumber
+    this.holderName = holderName
+    this.balance = balance
+  }
+}
+
+let bankAcc = new BankAccounts(595826002825,"Sweety Sharma",120000000)
+bankAcc.holderName;
+bankAcc.accountNumber;
+bankAcc.balance;
+
+//protected
+
+class Animal {
+  protected name;
+  constructor(name:string){
+    this.name = name
+  }
+}
+
+class Dog extends Animal {
+  
+  changeName(){
+    this.name = "Aman"
+  }
+}
+
+let d1 = new Dog("Sweety")
+d1.name;
+
+//Mixed challenge
+
+class Userss{
+  private id;
+  public name;
+  public email;
+  private password;
+  protected role;
+  constructor(id:number,name:string,email:string,password:string,role:string){
+    this.id = id
+    this.name = name
+    this.email = email
+    this.password = password
+    this.role = role
+  }
+}
+
+class Admin extends Userss {
+  accessRole(){
+    this.role = "Admin Ka Father"
+  }
+}
+
+let aDmin = new Admin(101,"Aman","amansingh36645@gmail.com","hds7f3","Admin God")
+
+aDmin.id;
+aDmin.email;
+aDmin.name
+aDmin.role
+aDmin.password
+
+
+
+
