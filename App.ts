@@ -321,25 +321,21 @@ let p3 = new Product(103, "Laptop", 12000, true);
 //Class + Constructor Challenge
 
 class BankAccount {
-  constructor(accountNumber: number, holderName: string, balance: number) {
-
-  }
+  constructor(accountNumber: number, holderName: string, balance: number) {}
 }
 
-let b1 = new BankAccount(585926002825,"Aman Singh",12000);
-let b2 = new BankAccount(585926002826,"Sweety Gupta",18000);
+let b1 = new BankAccount(585926002825, "Aman Singh", 12000);
+let b2 = new BankAccount(585926002826, "Sweety Gupta", 18000);
 
 //Final Challenge
 
 class Cars {
-  constructor(brand:string,model:string,year:number,price:number){
-
-  }
+  constructor(brand: string, model: string, year: number, price: number) {}
 }
 
-let c1 = new Cars("MG","electric",2025,1209999)
-let c2 = new Cars("BMW","M5 Competition",2025,9999999999)
-let c3 = new Cars("Tesla","electric",2025,99)
+let c1 = new Cars("MG", "electric", 2025, 1209999);
+let c2 = new Cars("BMW", "M5 Competition", 2025, 9999999999);
+let c3 = new Cars("Tesla", "electric", 2025, 99);
 
 // this and access modifier
 
@@ -347,15 +343,15 @@ class Students {
   name;
   age;
   course;
-  constructor(name:string,age:number,course:string){
-   this.name = name
-   this.age = age
-   this.course = course 
+  constructor(name: string, age: number, course: string) {
+    this.name = name;
+    this.age = age;
+    this.course = course;
   }
 }
 
-let std101 = new Students("AMan",24,"mca") 
-let std102 = new Students("Sonali",16,"Phd")
+let std101 = new Students("AMan", 24, "mca");
+let std102 = new Students("Sonali", 16, "Phd");
 
 //public
 
@@ -363,17 +359,17 @@ class Productss {
   public name;
   public price;
   public inStock;
-  constructor(naam:string,kimat:number,samaanHai:boolean){
-    this.name = naam
-    this.price = kimat
-    this.inStock = samaanHai
-  } 
+  constructor(naam: string, kimat: number, samaanHai: boolean) {
+    this.name = naam;
+    this.price = kimat;
+    this.inStock = samaanHai;
+  }
 }
 
-let ptd1 = new Productss("Lappy", 2500,true)
-ptd1.name
-ptd1.price
-ptd1.inStock
+let ptd1 = new Productss("Lappy", 2500, true);
+ptd1.name;
+ptd1.price;
+ptd1.inStock;
 
 //private
 
@@ -381,14 +377,14 @@ class BankAccounts {
   private accountNumber;
   public holderName;
   private balance;
-  constructor(accountNumber:number,holderName:string,balance:number){
-    this.accountNumber = accountNumber
-    this.holderName = holderName
-    this.balance = balance
+  constructor(accountNumber: number, holderName: string, balance: number) {
+    this.accountNumber = accountNumber;
+    this.holderName = holderName;
+    this.balance = balance;
   }
 }
 
-let bankAcc = new BankAccounts(595826002825,"Sweety Sharma",120000000)
+let bankAcc = new BankAccounts(595826002825, "Sweety Sharma", 120000000);
 bankAcc.holderName;
 bankAcc.accountNumber;
 bankAcc.balance;
@@ -397,51 +393,171 @@ bankAcc.balance;
 
 class Animal {
   protected name;
-  constructor(name:string){
-    this.name = name
+  constructor(name: string) {
+    this.name = name;
   }
 }
 
 class Dog extends Animal {
-  
-  changeName(){
-    this.name = "Aman"
+  changeName() {
+    this.name = "Aman";
   }
 }
 
-let d1 = new Dog("Sweety")
+let d1 = new Dog("Sweety");
 d1.name;
 
 //Mixed challenge
 
-class Userss{
+class Userss {
   private id;
   public name;
   public email;
   private password;
   protected role;
-  constructor(id:number,name:string,email:string,password:string,role:string){
-    this.id = id
-    this.name = name
-    this.email = email
-    this.password = password
-    this.role = role
+  constructor(
+    id: number,
+    name: string,
+    email: string,
+    password: string,
+    role: string,
+  ) {
+    this.id = id;
+    this.name = name;
+    this.email = email;
+    this.password = password;
+    this.role = role;
   }
 }
 
 class Admin extends Userss {
-  accessRole(){
-    this.role = "Admin Ka Father"
+  accessRole() {
+    this.role = "Admin Ka Father";
   }
 }
 
-let aDmin = new Admin(101,"Aman","amansingh36645@gmail.com","hds7f3","Admin God")
+let aDmin = new Admin(
+  101,
+  "Aman",
+  "amansingh36645@gmail.com",
+  "hds7f3",
+  "Admin God",
+);
 
 aDmin.id;
 aDmin.email;
-aDmin.name
-aDmin.role
-aDmin.password
+aDmin.name;
+aDmin.role;
+aDmin.password;
+
+// Readonly Property
+
+class Std {
+  public readonly id;
+  public name;
+  public course;
+  constructor(name: string, id: number, course: string) {
+    this.id = id;
+    this.name = name;
+    this.course = course;
+  }
+}
+
+let s1 = new Std("aman", 101, "MCA");
+s1.name = "Sweety";
+s1.id = 102;
+
+// Parameter Properties
+
+class Prdct {
+  constructor(
+    public name: string,
+    private price: number,
+    public readonly category: string,
+  ) {}
+}
+
+let pdt1 = new Prdct("laptop", 2499, "gaming");
+let pdt2 = new Prdct("macbook", 1499, "office");
+
+//Getter and Setter
+
+class BnkAcc {
+  constructor(private _balance: number) {}
+
+  get balance() {
+    return this._balance;
+  }
+
+  set balance(value: number) {
+    if (value <= 0) return;
+    this._balance = value;
+  }
+}
+
+let ba1 = new BnkAcc(2800);
+ba1.balance;
+ba1.balance = 2900;
+ba1.balance = -111;
+
+//getter + setter
+class Userr {
+  constructor(private _password: string) {}
+  get password() {
+    return this._password;
+  }
+
+  set password(value: string) {
+    this._password = value;
+  }
+}
+
+let u1 = new Userr("AsPs1957");
+u1.password;
+u1.password = "ASAP1957";
+
+// Static Member
+
+class Info {
+  static namee = "SMS";
+  static clgcode = 1597;
+
+  static getCollegeInfo() {
+    return (this.namee, this.clgcode);
+  }
+}
+
+Info.namee;
+Info.clgcode;
+Info.getCollegeInfo();
+
+//Final Challenge
+
+class Prdcct {
+  public readonly id;
+  static totalProduct = 0
+  constructor(
+    public name: string,
+    private _price: number,
+    public category: string,
+    id: number,
+  ) {
+    this.id = id;
+    Prdcct.totalProduct += 1;
+  }
+  get price(){
+    return this._price
+  }
+
+  set price(value:number){
+    this._price = value
+  }
+
+}
+
+let p11 = new Prdcct("Bag",199,"leather",101)
+let p22 = new Prdcct("Tshirt",1299,"leather",102)
+let p33 = new Prdcct("jacket",1599,"leather",103)
 
 
 
