@@ -559,6 +559,22 @@ let p11 = new Prdcct("Bag",199,"leather",101)
 let p22 = new Prdcct("Tshirt",1299,"leather",102)
 let p33 = new Prdcct("jacket",1599,"leather",103)
 
+// abstract class and methods
 
+abstract class Animals{
+  constructor(public name:string){
+
+  }
+
+  abstract makeSound(): string;
+}
+
+class Dogs extends Animals{
+   makeSound(): string {
+     return "meow"
+   }
+}
+
+let d11 = new Dogs("german")
 
 
