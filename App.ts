@@ -578,3 +578,83 @@ class Dogs extends Animals{
 let d11 = new Dogs("german")
 
 
+//Abstract class with normal + abstract method
+
+abstract class Employeee{
+  constructor(public name:string, public salary:number){}
+  showDetails(){
+    return "details func"
+  }
+
+  abstract calculateBonus():number;
+}
+
+class Developerr extends Employeee{
+  calculateBonus(): number {
+    return this.salary * 10;
+  }
+}
+
+let d101 = new Developerr("aman",12000)
+d101.calculateBonus()
+
+
+// Abstract method requirement
+
+abstract class vehicle{
+  public brand;
+  constructor(brand:string){
+    this.brand = brand
+  }
+  abstract startEngine():string;
+}
+
+class Carr extends vehicle{
+  startEngine():string{
+    return "Broom! Broom! Its a Supraaaaaa"
+  }
+}
+
+let c101 = new Carr("Toyota")
+c101.startEngine()
+
+//Test what abstract means
+
+abstract class Payment{
+  abstract pay():void;
+}
+
+class CreditPayment extends Payment{
+
+}
+
+let CP1 = new Payment() //error: cannot create instance of abstract class
+
+//final 
+
+abstract class Shape {
+  constructor(public name:string){}
+  abstract calculateArea():number;
+  showName(){
+
+  }
+}
+
+class Circle extends Shape{
+  constructor(public radius:number){}
+  calculateArea(): number {
+    return this.radius * 2
+  }
+}
+
+let c1001 = new Circle(12)
+
+class Rectangle extends Shape{
+  constructor(public width:number, public height:number){}
+  calculateArea(): number {
+    return this.width * this.height
+  }
+}
+
+let rec101 = new Rectangle(10,20)
+

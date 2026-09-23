@@ -357,5 +357,88 @@ class Prdcct {
 let p11 = new Prdcct("Bag", 199, "leather", 101);
 let p22 = new Prdcct("Tshirt", 1299, "leather", 102);
 let p33 = new Prdcct("jacket", 1599, "leather", 103);
+// abstract class and methods
+class Animals {
+    name;
+    constructor(name) {
+        this.name = name;
+    }
+}
+class Dogs extends Animals {
+    makeSound() {
+        return "meow";
+    }
+}
+let d11 = new Dogs("german");
+//Abstract class with normal + abstract method
+class Employeee {
+    name;
+    salary;
+    constructor(name, salary) {
+        this.name = name;
+        this.salary = salary;
+    }
+    showDetails() {
+        return "details func";
+    }
+}
+class Developerr extends Employeee {
+    calculateBonus() {
+        return this.salary * 10;
+    }
+}
+let d101 = new Developerr("aman", 12000);
+d101.calculateBonus();
+// Abstract method requirement
+class vehicle {
+    brand;
+    constructor(brand) {
+        this.brand = brand;
+    }
+}
+class Carr extends vehicle {
+    startEngine() {
+        return "Broom! Broom! Its a Supraaaaaa";
+    }
+}
+let c101 = new Carr("Toyota");
+c101.startEngine();
+//Test what abstract means
+class Payment {
+}
+class CreditPayment extends Payment {
+}
+let CP1 = new Payment(); //error: cannot create instance of abstract class
+//final 
+class Shape {
+    name;
+    constructor(name) {
+        this.name = name;
+    }
+    showName() {
+    }
+}
+class Circle extends Shape {
+    radius;
+    constructor(radius) {
+        this.radius = radius;
+    }
+    calculateArea() {
+        return this.radius * 2;
+    }
+}
+let c1001 = new Circle(12);
+class Rectangle extends Shape {
+    width;
+    height;
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+    }
+    calculateArea() {
+        return this.width * this.height;
+    }
+}
+let rec101 = new Rectangle(10, 20);
 export {};
 //# sourceMappingURL=App.js.map
