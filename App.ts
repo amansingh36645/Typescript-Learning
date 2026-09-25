@@ -535,7 +535,7 @@ Info.getCollegeInfo();
 
 class Prdcct {
   public readonly id;
-  static totalProduct = 0
+  static totalProduct = 0;
   constructor(
     public name: string,
     private _price: number,
@@ -545,116 +545,209 @@ class Prdcct {
     this.id = id;
     Prdcct.totalProduct += 1;
   }
-  get price(){
-    return this._price
+  get price() {
+    return this._price;
   }
 
-  set price(value:number){
-    this._price = value
+  set price(value: number) {
+    this._price = value;
   }
-
 }
 
-let p11 = new Prdcct("Bag",199,"leather",101)
-let p22 = new Prdcct("Tshirt",1299,"leather",102)
-let p33 = new Prdcct("jacket",1599,"leather",103)
+let p11 = new Prdcct("Bag", 199, "leather", 101);
+let p22 = new Prdcct("Tshirt", 1299, "leather", 102);
+let p33 = new Prdcct("jacket", 1599, "leather", 103);
 
 // abstract class and methods
 
-abstract class Animals{
-  constructor(public name:string){
-
-  }
+abstract class Animals {
+  constructor(public name: string) {}
 
   abstract makeSound(): string;
 }
 
-class Dogs extends Animals{
-   makeSound(): string {
-     return "meow"
-   }
+class Dogs extends Animals {
+  makeSound(): string {
+    return "meow";
+  }
 }
 
-let d11 = new Dogs("german")
-
+let d11 = new Dogs("german");
 
 //Abstract class with normal + abstract method
 
-abstract class Employeee{
-  constructor(public name:string, public salary:number){}
-  showDetails(){
-    return "details func"
+abstract class Employeee {
+  constructor(
+    public name: string,
+    public salary: number,
+  ) {}
+  showDetails() {
+    return "details func";
   }
 
-  abstract calculateBonus():number;
+  abstract calculateBonus(): number;
 }
 
-class Developerr extends Employeee{
+class Developerr extends Employeee {
   calculateBonus(): number {
     return this.salary * 10;
   }
 }
 
-let d101 = new Developerr("aman",12000)
-d101.calculateBonus()
-
+let d101 = new Developerr("aman", 12000);
+d101.calculateBonus();
 
 // Abstract method requirement
 
-abstract class vehicle{
+abstract class vehicle {
   public brand;
-  constructor(brand:string){
-    this.brand = brand
+  constructor(brand: string) {
+    this.brand = brand;
   }
-  abstract startEngine():string;
+  abstract startEngine(): string;
 }
 
-class Carr extends vehicle{
-  startEngine():string{
-    return "Broom! Broom! Its a Supraaaaaa"
+class Carr extends vehicle {
+  startEngine(): string {
+    return "Broom! Broom! Its a Supraaaaaa";
   }
 }
 
-let c101 = new Carr("Toyota")
-c101.startEngine()
+let c101 = new Carr("Toyota");
+c101.startEngine();
 
 //Test what abstract means
 
-abstract class Payment{
-  abstract pay():void;
+abstract class Payment {
+  abstract pay(): void;
 }
 
-class CreditPayment extends Payment{
+class CreditPayment extends Payment {}
 
-}
+let CP1 = new Payment(); //error: cannot create instance of abstract class
 
-let CP1 = new Payment() //error: cannot create instance of abstract class
-
-//final 
+//final
 
 abstract class Shape {
-  constructor(public name:string){}
-  abstract calculateArea():number;
-  showName(){
-
-  }
+  constructor(public name: string) {}
+  abstract calculateArea(): number;
+  showName() {}
 }
 
-class Circle extends Shape{
-  constructor(public radius:number){}
+class Circle extends Shape {
+  constructor(public radius: number) {}
   calculateArea(): number {
-    return this.radius * 2
+    return this.radius * 2;
   }
 }
 
-let c1001 = new Circle(12)
+let c1001 = new Circle(12);
 
-class Rectangle extends Shape{
-  constructor(public width:number, public height:number){}
+class Rectangle extends Shape {
+  constructor(
+    public width: number,
+    public height: number,
+  ) {}
   calculateArea(): number {
-    return this.width * this.height
+    return this.width * this.height;
   }
 }
 
-let rec101 = new Rectangle(10,20)
+let rec101 = new Rectangle(10, 20);
 
+//Basic function
+
+function greetUser(name: string): string {
+  return name;
+}
+
+greetUser("aman");
+greetUser("sonali");
+
+//Multiple parameters
+
+function calculateTotal(price: number, qty: number) {
+  let num = price * qty;
+  return num;
+}
+
+calculateTotal(10, 100);
+calculateTotal(12, 12);
+
+// void
+
+function showProduct(name: string, price: number): void {
+  console.log(`name: ${name} and price: ${price}`);
+}
+
+showProduct("laptop", 1900);
+
+//Optional parameter
+
+function createUser(name: string, age: number, email?: string) {
+  console.log(name, age, email);
+}
+
+createUser("aman", 24, "amansingh@gmail.com");
+createUser("sonali", 16);
+
+//Default parameter
+
+function calculateDiscount(price: number, discount: number = 10) {
+  return price - discount;
+}
+
+calculateDiscount(100, 20);
+calculateDiscount(100);
+
+//Function expression
+
+function multiply(a: number, b: number): number {
+  return a * b;
+}
+
+multiply(10, 20);
+
+//arrow function
+
+let isAdult = (age: number): boolean => {
+  if (age >= 18) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+isAdult(19);
+isAdult(9);
+
+//Rest parameter
+
+function calculateSum(...arg: number[]):number {
+  let sum = 0;
+  for (let i = 0; i < arg.length; i++) {
+    sum = sum + arg[i];
+  }
+
+  return sum;
+}
+
+calculateSum(10, 20);
+calculateSum(10, 20, 30, 40);
+calculateSum(5, 15, 25, 35, 45);
+
+//Callback
+
+function processNumber(a:number,cb){
+  return cb
+}
+
+//Final challenge
+
+function calculateEmployeeSalary(salary:number,bonus:number,tax:number = 100){
+  let total = salary + bonus - tax
+  return total
+}
+
+calculateEmployeeSalary(12000,1000)
+calculateEmployeeSalary(12000,1000,500)

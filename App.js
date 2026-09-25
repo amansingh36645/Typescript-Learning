@@ -409,14 +409,13 @@ class Payment {
 class CreditPayment extends Payment {
 }
 let CP1 = new Payment(); //error: cannot create instance of abstract class
-//final 
+//final
 class Shape {
     name;
     constructor(name) {
         this.name = name;
     }
-    showName() {
-    }
+    showName() { }
 }
 class Circle extends Shape {
     radius;
@@ -440,5 +439,73 @@ class Rectangle extends Shape {
     }
 }
 let rec101 = new Rectangle(10, 20);
+//Basic function
+function greetUser(name) {
+    return name;
+}
+greetUser("aman");
+greetUser("sonali");
+//Multiple parameters
+function calculateTotal(price, qty) {
+    let num = price * qty;
+    return num;
+}
+calculateTotal(10, 100);
+calculateTotal(12, 12);
+// void
+function showProduct(name, price) {
+    console.log(`name: ${name} and price: ${price}`);
+}
+showProduct("laptop", 1900);
+//Optional parameter
+function createUser(name, age, email) {
+    console.log(name, age, email);
+}
+createUser("aman", 24, "amansingh@gmail.com");
+createUser("sonali", 16);
+//Default parameter
+function calculateDiscount(price, discount = 10) {
+    return price - discount;
+}
+calculateDiscount(100, 20);
+calculateDiscount(100);
+//Function expression
+function multiply(a, b) {
+    return a * b;
+}
+multiply(10, 20);
+//arrow function
+let isAdult = (age) => {
+    if (age >= 18) {
+        return true;
+    }
+    else {
+        return false;
+    }
+};
+isAdult(19);
+isAdult(9);
+//Rest parameter
+function calculateSum(...arg) {
+    let sum = 0;
+    for (let i = 0; i < arg.length; i++) {
+        sum = sum + arg[i];
+    }
+    return sum;
+}
+calculateSum(10, 20);
+calculateSum(10, 20, 30, 40);
+calculateSum(5, 15, 25, 35, 45);
+//Callback
+function processNumber(a, cb) {
+    return cb;
+}
+//Final challenge
+function calculateEmployeeSalary(salary, bonus, tax = 100) {
+    let total = salary + bonus - tax;
+    return total;
+}
+calculateEmployeeSalary(12000, 1000);
+calculateEmployeeSalary(12000, 1000, 500);
 export {};
 //# sourceMappingURL=App.js.map
