@@ -723,7 +723,7 @@ isAdult(9);
 
 //Rest parameter
 
-function calculateSum(...arg: number[]):number {
+function calculateSum(...arg: number[]): number {
   let sum = 0;
   for (let i = 0; i < arg.length; i++) {
     sum = sum + arg[i];
@@ -738,16 +738,137 @@ calculateSum(5, 15, 25, 35, 45);
 
 //Callback
 
-function processNumber(a:number,cb){
-  return cb
+function processNumber(a: number, cb) {
+  return cb;
 }
 
 //Final challenge
 
-function calculateEmployeeSalary(salary:number,bonus:number,tax:number = 100){
-  let total = salary + bonus - tax
-  return total
+function calculateEmployeeSalary(
+  salary: number,
+  bonus: number,
+  tax: number = 100,
+) {
+  let total = salary + bonus - tax;
+  return total;
 }
 
-calculateEmployeeSalary(12000,1000)
-calculateEmployeeSalary(12000,1000,500)
+calculateEmployeeSalary(12000, 1000);
+calculateEmployeeSalary(12000, 1000, 500);
+
+//Generic Function
+
+function getValue<T>(a: T): T {
+  return a;
+}
+
+getValue("aman");
+getValue(12);
+getValue(false);
+getValue([1, 2, 3, 4, 5]);
+
+//Generic Function with Two Types
+
+function makePair<T, U>(a: T, b: U) {
+  return { a, b };
+}
+
+makePair("aman", 12);
+makePair(12, true);
+makePair("sonali", false);
+
+//Generic Interface
+
+interface ApiResponses<T> {
+  success: boolean;
+  data: T;
+  message: string;
+}
+
+function responsess<T>(res:ApiResponses<T>){
+  return res.data
+}
+
+responsess({success:true,data:"sweety",message:"hello gusss"})
+responsess({success:true,data:23,message:"hello gusss"})
+responsess({success:true,data:{id:101,name:"sonali"},message:"hello gusss"})
+
+
+
+//Generic Interface + Your Previous Knowledge
+
+interface Userss {
+  ids: number;
+  name: string;
+  email: string;
+}
+
+interface ApiResponse<T> {
+}
+
+let obj: ApiResponse<Userss> = {
+  ids: 101,
+  name: "aman",
+  email: "amansingh@gmail.com",
+};
+
+//Generic Class
+
+class Storages<T> {
+  constructor(private a: T) {}
+
+  getValues() {
+    return this.a;
+  }
+}
+
+let s101 = new Storages("aman");
+let s102 = new Storages(12);
+let s103 = new Storages(true);
+
+s101.getValues("aman");
+s102.getValues(22);
+s103.getValues(false);
+
+//Generic Class with Method
+
+class Box<T> {
+  constructor(public a: T) {}
+  getValuess() {
+    return this.a ;
+  }
+}
+
+let b11 = new Box("aman");
+let b12 = new Box(12);
+let b13 = new Box({ id: 101, name: "aman" });
+b11.getValuess();
+b12.getValuess();
+b13.getValuess();
+
+//Final Challenge
+
+interface Result<T> {
+  success: boolean;
+  data: T;
+  error: string;
+}
+
+class ApiHandler<T> {
+  public a: Result<T>;
+  constructor(d: Result<T>) {
+    this.a = d;
+  }
+
+  getDetails() {
+    return this.a;
+  }
+}
+
+let api101 = new ApiHandler({
+  data: 1001,
+  success: false,
+  error: "hello guys",
+});
+
+api101.getDetails();
