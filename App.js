@@ -507,5 +507,78 @@ function calculateEmployeeSalary(salary, bonus, tax = 100) {
 }
 calculateEmployeeSalary(12000, 1000);
 calculateEmployeeSalary(12000, 1000, 500);
+//Generic Function
+function getValue(a) {
+    return a;
+}
+getValue("aman");
+getValue(12);
+getValue(false);
+getValue([1, 2, 3, 4, 5]);
+//Generic Function with Two Types
+function makePair(a, b) {
+    return { a, b };
+}
+makePair("aman", 12);
+makePair(12, true);
+makePair("sonali", false);
+function responsess(res) {
+    return res.data;
+}
+responsess({ success: true, data: "sweety", message: "hello gusss" });
+responsess({ success: true, data: 23, message: "hello gusss" });
+responsess({ success: true, data: { id: 101, name: "sonali" }, message: "hello gusss" });
+let obj = {
+    ids: 101,
+    name: "aman",
+    email: "amansingh@gmail.com",
+};
+//Generic Class
+class Storages {
+    a;
+    constructor(a) {
+        this.a = a;
+    }
+    getValues() {
+        return this.a;
+    }
+}
+let s101 = new Storages("aman");
+let s102 = new Storages(12);
+let s103 = new Storages(true);
+s101.getValues("aman");
+s102.getValues(22);
+s103.getValues(false);
+//Generic Class with Method
+class Box {
+    a;
+    constructor(a) {
+        this.a = a;
+    }
+    getValuess() {
+        return this.a;
+    }
+}
+let b11 = new Box("aman");
+let b12 = new Box(12);
+let b13 = new Box({ id: 101, name: "aman" });
+b11.getValuess();
+b12.getValuess();
+b13.getValuess();
+class ApiHandler {
+    a;
+    constructor(d) {
+        this.a = d;
+    }
+    getDetails() {
+        return this.a;
+    }
+}
+let api101 = new ApiHandler({
+    data: 1001,
+    success: false,
+    error: "hello guys",
+});
+api101.getDetails();
 export {};
 //# sourceMappingURL=App.js.map
